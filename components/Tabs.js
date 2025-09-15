@@ -9,7 +9,7 @@ import { Children } from "react";
 // useSearchParams; query params ?eg=test
 
 
-const Tabs = ({ children }) => { // declare Tabs component, expects children 
+const Tabs = ({ tabs }) => { // declare Tabs component, expects children 
   const [active, setActive] = useState(0); //active stores the current tab index, starts at 0
   const router = useRouter();
   const searchParams = useSearchParams();
