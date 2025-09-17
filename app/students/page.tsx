@@ -1,5 +1,4 @@
-import Tab from "@/components/Tab";
-import Tabs from "@/components/Tabs";
+import TabGroup from "@/components/TabGroup";
 
 const tabData = [
   { key: 'info', title: 'Customer info', content: <p>We are showing customer info here</p> },
@@ -7,10 +6,10 @@ const tabData = [
   { key: 'payment-methods', title: 'Payment methods', content: <p>We are showing customer payment methods here</p> },
 ];
 
-export default function Test() {
+export default function StudentPage() {
   return (
     <div className="bg-background text-foreground">
-      <Tabs tabs={tabData} />
+      <TabGroup tabs={tabData} />
     </div>
   );
 }

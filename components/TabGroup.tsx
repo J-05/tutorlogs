@@ -7,24 +7,28 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Children } from "react";
 // useRouter; manually change url
 // useSearchParams; query params ?eg=test
+import {Tab, TabKey} from "@/types/Tab"
 
+interface TabGroupProp {
+    tabs: Tab[];
+}
 
-const Tabs = ({ tabs }) => { // declare Tabs component, expects children 
-  const [active, setActive] = useState(0); //active stores the current tab index, starts at 0
+const TabGroup = ({ tabs }: TabGroupProp) => { // declare Tabs component, expects tabs 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const tab = searchParams.get('tab');
+  const validTabs: TabKey[] = ["student1", "student2"];
+  const [activeTab, setActive] = useState<TabKey>("student1"); //active stores the current tab index
+  const tabParam = searchParams.get("tab");
 
 
   useEffect(() => { //runs after render + when dependencies change 
-    if (!tab) return; // check for tab param
+    if (!tabParam) return; // check for tab param
 
-    const index = children.map(child => child.key).indexOf(tab); // find index that matches tab
+    if (tabParam && validTabs.includes(tabParam as TabKey)) {
+      setActive(tabParam as TabKey);
+    }
 
-    if (index < 0) return;
-
-    setActive(index);
-  }, [tab, children]) // dependencies
+  }, [tabParam, tabs]) // dependencies
 
   const handleClick = (e, index, cb = () => {}) => {
     
