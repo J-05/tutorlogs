@@ -16,65 +16,54 @@ interface TabGroupProp {
 const TabGroup = ({ tabs }: TabGroupProp) => { // declare Tabs component, expects tabs 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const validTabs: TabKey[] = ["student1", "student2"];
-  const [activeTab, setActive] = useState<TabKey>("student1"); //active stores the current tab index
+  const [activeTabKey, setActive] = useState<TabKey>("student1"); //active stores the current tab index
+  const activeTab = tabs.find(t => t.key === activeTabKey);
   const tabParam = searchParams.get("tab");
 
 
   useEffect(() => { //runs after render + when dependencies change 
-    if (!tabParam) return; // check for tab param
-
-    if (tabParam && validTabs.includes(tabParam as TabKey)) {
-      setActive(tabParam as TabKey);
-    }
-
+    if (!tabParam) return;
+    setActive(tabParam as TabKey);
   }, [tabParam, tabs]) // dependencies
 
-  const handleClick = (e, index, cb = () => {}) => {
-    
-    e.preventDefault();
-
+  // e = click event, cb = callback function optional
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, newTabKey: TabKey, cb = () => {}) => {
+    e.preventDefault(); // prevent browser doing its default function (follow link)
     // build new search params
     const params = new URLSearchParams(window.location.search);
-    const childrenArr = Children.toArray(children);
-    const i = childrenArr.findIndex(child => child.props["data-tabkey"] === index);
-    console.log(i, index)
-    params.set("tabs", children[i].props["data-tabkey"]);
-    console.log("ok3")
+    params.set("tabs", newTabKey);
     // push new url
     router.push(`?${params.toString()}`);
-    
-    setActive(i);
+    setActive(newTabKey);
     cb && cb(); // run callback if provided
   }
 
   return (
     <div className="tabs">
+
       <div className="tabs__navigation flex gap-4 mt-6">
-        {children.map((child, index) => ( // loop through all children and provide a hyperlink
-          <a href="#" className={`
-          px-4 
-          py-2 
-          rounded-t-md
-          bg-cyan-500 
-          shadow-lg shadow-cyan-500/50 
-          hover:bg-cyan-600
-          hover:shadow-cyan-600/50
-          transition-colors duration-[0.7s]
-          tabs__navigation__item 
-          ${index === active
-            ? 'active bg-cyan-700 text-white' 
-            : ''}`} 
-          key={`tab-${index}`} 
-          onClick={e => handleClick(e, child.key, child.props.onClick)}>
-            {child.props.title}
-          </a> // adds active class if its the selected one
+        {tabs.map((tab, _) => ( // loop through all children and provide a hyperlink
+          <a href="#" key={tab.key} className={` // # is a placeholder link, preventdefault overrides it anyway
+            px-4 
+            py-2 
+            rounded-t-md
+            bg-cyan-500 
+            shadow-lg shadow-cyan-500/50 
+            hover:bg-cyan-600
+            hover:shadow-cyan-600/50
+            transition-colors duration-[0.7s]
+            tabs__navigation__item 
+            ${tab.key === activeTabKey
+              ? 'active bg-cyan-700 text-white' 
+              : ''}`
+          } onClick={e => handleClick(e, tab.key)}> {tab.title} </a> // adds active class if its the selected one
         ))}
       </div>
-      <div className="tabs__body">{children[active]}</div>  
-      {/* only shows body of active tab */}
+
+      <div className="tabs__body">{activeTab?.content}</div>
+      
     </div>
   )
 }
 
-export default Tabs;
+export default TabGroup;
