@@ -1,0 +1,70 @@
+/* colour pallet: https://coolors.co/db5a42-241623-4f6367-f5f5f5-fe5f55 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F5F5F5;
+  --foreground: #090A0B;
+  --white: #F5F5F5;
+  --black: #090A0B;
+  --light: #E3E3EB;
+  --dark: #241623;
+  --primary: #497476;
+  --secondary: #79958F;
+  --tertiary: #3e545a;
+  --accent: #DB5A42;
+  --highlight: #FE5F55;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #F5F5F5;
+    --foreground: #090A0B;
+    --white: #F5F5F5;
+    --black: #090A0B;
+    --light: #E3E3EB;
+    --dark: #241623;
+    --primary: #497476;
+    --secondary: #79958F;
+    --tertiary: #3e545a;
+    --accent: #DB5A42;
+    --highlight: #FE5F55;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: monospace, Helvetica, sans-serif;
+}
+
+.header-text {
+  color: var(--white);
+}
+
+.dropdown {
+  position: absolute;
+  top: 38px;
+  left: -1px;
+  border: 1px solid rgb(197, 197, 197);
+  background: #fff;
+  padding: 0;
+  color: #0062cc;
+  text-align: left;
+  border-radius: 0.25rem;
+}
+.dropdown > p {
+  margin: 0;
+  padding: 0.375rem 0.88rem;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  min-width: 140px;
+}
+.dropdown > p:hover {
+  color: #fff;
+  background-color: #0062cc;
+}
+.dropdown > p:last-child {
+  border-bottom: 0 none;
+}
