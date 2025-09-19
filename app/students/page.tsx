@@ -1,9 +1,9 @@
 import TabGroup from "@/components/TabGroup";
 
 const tabData = [
-  { key: 'info', title: 'Customer info', content: <p>We are showing customer info here</p> },
-  { key: 'payment-history', title: 'Payment history', content: <p>We are showing customer payment history here</p> },
-  { key: 'payment-methods', title: 'Payment methods', content: <p>We are showing customer payment methods here</p> },
+  { key: 'student1', title: 'Amy', content: <p>We are showing customer info here</p> },
+  { key: 'student2', title: 'Andrew', content: <p>We are showing customer payment history here</p> },
+  { key: 'student3', title: 'Chloe', content: <p>We are showing customer payment methods here</p> },
 ];
 
 export default function StudentPage() {

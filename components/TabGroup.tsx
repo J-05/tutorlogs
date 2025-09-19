@@ -39,29 +39,29 @@ const TabGroup = ({ tabs }: TabGroupProp) => { // declare Tabs component, expect
   }
 
   return (
-    <div className="tabs">
+    <div className="tab_group_body">
 
-      <div className="tabs__navigation flex gap-4 mt-6">
+      <div className="tab_heads flex gap-1 mt-1">
         {tabs.map((tab, _) => ( // loop through all children and provide a hyperlink
           <a href="#" key={tab.key} className={` // # is a placeholder link, preventdefault overrides it anyway
-            px-4 
+            tab_head
+            px-4
             py-2 
-            rounded-t-md
-            bg-cyan-500 
-            shadow-lg shadow-cyan-500/50 
-            hover:bg-cyan-600
-            hover:shadow-cyan-600/50
+            rounded-t-lg
+            bg-[#241623]
+            text-white
+            shadow-lg shadow-[#241623]/50 
+            hover:bg-[#DB5A42]
             transition-colors duration-[0.7s]
-            tabs__navigation__item 
             ${tab.key === activeTabKey
-              ? 'active bg-cyan-700 text-white' 
+              ? 'active bg-[#DB5A42] text-white' 
               : ''}`
           } onClick={e => handleClick(e, tab.key)}> {tab.title} </a> // adds active class if its the selected one
         ))}
       </div>
 
       <div className="tabs__body">{activeTab?.content}</div>
-      
+
     </div>
   )
 }
