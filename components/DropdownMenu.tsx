@@ -33,19 +33,18 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
 
         <div className="relative">
         <button
-            className={`${showDropdown ? "active" : ""} bg-tertiary`}
+            className={`${showDropdown ? "active" : ""}bg-primary`}
             onClick={(): void => toggleDropdown()}
             onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-            dismissHandler(e)
+            (dismissHandler(e))
             }
         >
-            <div>{selectedOption} </div>
+            {selectedOption}
         </button>
+
         {showDropdown && (
             <Dropdown
                 options={options()}
-                showDropdown={false}
-                toggleDropdown={(): void => toggleDropdown()}
                 optionSelection={optionSelection}
             />
             )}

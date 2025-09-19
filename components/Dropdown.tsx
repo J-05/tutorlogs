@@ -2,17 +2,17 @@
 
 'use client';
 import React, { useEffect, useState } from 'react';
+import { ViewType } from '@/types/Views'
 
 type DropdownProps = {
   options: string[];
-  showDropdown: boolean;
-  toggleDropdown: Function;
   optionSelection: Function;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: DropdownProps): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const onClickHandler = (option: string): void => {
+  const onClickHandler = (option: ViewType): void => {
+    console.log("hi")
     optionSelection(option);
   };
 
@@ -26,14 +26,15 @@ const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: Dropdow
         {options.map(
           (option: string, _: number): React.JSX.Element => {
             return (
-              <p
+              <button
                 key={option.toLowerCase()}
                 onClick={(): void => {
-                  onClickHandler(option);
+                  onClickHandler(option as ViewType);
                 }}
+                className='hover:bg-accent'
               >
                 {option}
-              </p>
+              </button>
             );
           }
         )}
