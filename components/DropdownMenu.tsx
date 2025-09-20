@@ -18,7 +18,9 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
 
 
   const dismissHandler = (e: React.FocusEvent<HTMLButtonElement>): void => {
-    if (e.currentTarget === e.target) { // clicked the div and not the child
+    console.log(e.currentTarget);
+    console.log(e.relatedTarget);
+    if (e.currentTarget !== e.relatedTarget) { // clicked the div and not the child
       setShowDropdown(false);
     }
   };
@@ -28,12 +30,12 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
   };
 
   return (
-    <div className="flex flex-row gap-4">   
+    <div className="flex flex-row gap-4 items-center">   
         <p>Current View:</p>
 
         <div className="relative">
         <button
-            className={`${showDropdown ? "active" : ""}bg-primary`}
+            className={`${showDropdown ? "active" : ""} bg-accent rounded-md px-3 py-1`}
             onClick={(): void => toggleDropdown()}
             onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
             (dismissHandler(e))

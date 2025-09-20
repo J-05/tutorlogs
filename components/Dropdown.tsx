@@ -11,7 +11,7 @@ type DropdownProps = {
 
 const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: DropdownProps): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const onClickHandler = (option: ViewType): void => {
+  const handleClick = (option: ViewType): void => {
     console.log("hi")
     optionSelection(option);
   };
@@ -28,8 +28,8 @@ const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: Dropdow
             return (
               <button
                 key={option.toLowerCase()}
-                onClick={(): void => {
-                  onClickHandler(option as ViewType);
+                onMouseDown={(): void => {
+                  handleClick(option as ViewType);
                 }}
                 className='hover:bg-accent'
               >
