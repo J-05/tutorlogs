@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from '@/assets/logo-placeholder-image.png';
-import DropdownMenu from "@/components/DropdownMenu";
+import DropdownMenu from "@/components/dropdown/DropdownMenu";
 
  
 const Header: React.FC = () => {

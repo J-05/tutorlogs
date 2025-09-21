@@ -45,8 +45,8 @@ const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => { // declar
           <a
             href="#"
             key={tab.key}
-            className={`tab_head px-4 py-2 rounded-t-lg text-white shadow hover:bg-accent transition-colors duration-700
-              ${tab.key === activeTabKey ? 'active bg-accent text-white' : 'bg-primary'}`}
+            className={`tab_head px-4 py-2 rounded-t-lg text-white shadow hover:bg-tabHighlight transition-colors duration-700
+              ${tab.key === activeTabKey ? 'active bg-tabHighlight text-white shadow-transparent' : 'bg-primary'}`}
             onClick={e => {
               e.preventDefault(); // prevent default navigation
               handleClick(e, tab.key);

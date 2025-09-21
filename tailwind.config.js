@@ -18,6 +18,7 @@ module.exports = {
         tertiary: 'var(--tertiary)',
         accent: 'var(--accent)',
         highlight: 'var(--highlight)',
+        tabHighlight: "var(--tabHighlight)"
       },
     },
   },
