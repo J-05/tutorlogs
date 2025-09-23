@@ -1,7 +1,7 @@
-import TabGroup from "@/components/TabGroup";
-import Header from "@/components/Header"
+import TabGroup from "@/components/tabs/TabGroup";
+import Header from "@/components/header/Header"
 import { Tab } from "@/types/Tab"
-import PanelGroup from "@/components/PanelGroup"
+import PanelGroup from "@/components/panels/PanelGroup"
 
 const tabData: Tab[] = [
   { key: 'student1', title: 'Amy', content: <PanelGroup></PanelGroup> },
