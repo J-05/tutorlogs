@@ -12,7 +12,6 @@ type DropdownProps = {
 const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: DropdownProps): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const handleClick = (option: ViewType): void => {
-    console.log("hi")
     optionSelection(option);
   };
 

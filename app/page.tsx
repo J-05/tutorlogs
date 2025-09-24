@@ -1,7 +1,8 @@
 import TabGroup from "@/components/tabs/TabGroup";
 import Header from "@/components/header/Header"
 import { Tab } from "@/types/Tab"
-import PanelGroup from "@/components/panels/PanelGroup"
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+
 
 const tabData: Tab[] = [
   { key: 'student1', title: 'Amy', content: <PanelGroup></PanelGroup> },
