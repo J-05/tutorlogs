@@ -2,15 +2,14 @@
 
 'use client';
 import React, { useState } from "react";
-import Dropdown from "./Dropdown";
 import { ViewType } from "@/types/Views"
+import Dropdown from "./Dropdown";
+import DropdownMenuProps from "@/types/DropdownMenuProps"
 
-const DropdownMenu: React.FC = (): React.JSX.Element => {
+
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<ViewType>("Planner");
-  const options = () => {
-    return ["Planner", "Financing"];
-  };
   
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -46,7 +45,7 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
 
         {showDropdown && (
             <Dropdown
-                options={options()}
+                options={options}
                 optionSelection={optionSelection}
             />
             )}

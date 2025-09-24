@@ -3,11 +3,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { ViewType } from '@/types/Views'
+import DropdownProps from "@/types/DropdownProps"
 
-type DropdownProps = {
-  options: string[];
-  optionSelection: Function;
-};
+
 
 const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: DropdownProps): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);

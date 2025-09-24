@@ -5,15 +5,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Children } from "react";
-// useRouter; manually change url
-// useSearchParams; query params ?eg=test
 import {Tab, TabKey} from "@/types/Tab"
 
 interface TabGroupProp {
     tabs: Tab[];
 }
 
-const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => { // declare Tabs component, expects tabs 
+const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activeTabKey, setActive] = useState<TabKey>("student1"); //active stores the current tab index

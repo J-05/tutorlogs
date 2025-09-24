@@ -1,7 +1,15 @@
 import TabGroup from "@/components/tabs/TabGroup";
-import Header from "@/components/header/Header"
 import { Tab } from "@/types/Tab"
+import Header from "@/components/header/Header"
+import Panel from "@/components/panels/Panel"
+import PanelGroupProps from "@/types/PanelGroupProps"
 import PanelGroup from "@/components/panels/PanelGroup"
+
+const panelGroupData: PanelGroupProps[] = [
+  {panels: [<Panel></Panel>], ratios: [1, 3]}
+  {panels: [<Panel></Panel>], ratios: [1, 1]}
+];
+
 
 const tabData: Tab[] = [
   { key: 'student1', title: 'Amy', content: <PanelGroup></PanelGroup> },
