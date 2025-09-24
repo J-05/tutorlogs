@@ -1,13 +1,13 @@
 "use client";
 
 
-const Resizer: React.FC = (resizePanel: () => void) => {
+const PanelResizer: React.FC = () => {
     return (
         <div
             className="w-1 bg-secondary cursor-col-resize"
-            onMouseDown={resizePanel}
+            // onMouseDown={}
         ></div>
     );
 }
 
-export default Resizer;
+export default PanelResizer;
