@@ -10,25 +10,20 @@ const PanelGroup: React.FC<PanelGroupProps> = ({panels, ratios}: PanelGroupProps
     const [isResizing, setIsResizing] = useState(false); 
 
     return (
-        <div className="panel-group flex flex-row gap-4 h-screen"> 
-            {panels.map((Panel, i) => (
+        <div className="panel-group flex flex-row h-screen"> 
+
+            {panels.map((panel, i) => (
                 <>
-                    <div className="flex-${ratios[i]} p-4 text-center h-full " style={{ width: leftWidth }}>
-                        <Panel />
+                    <div key={"panel-" + i} style={{ flex: ratios[i]}} className="p-4 text-center h-full ">
+                        {panel}
                     </div>
                     <PanelResizer></PanelResizer>
                 </>
             ))}
-
-
-
-
-            
-
-
-          <div className="flex-1 p-4 text-center h-full"><Panel></Panel></div>
         </div>
     );
 }
 
 export default PanelGroup;
+
+            

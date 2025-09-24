@@ -6,15 +6,16 @@ import PanelGroupProps from "@/types/PanelGroupProps"
 import PanelGroup from "@/components/panels/PanelGroup"
 
 const panelGroupData: PanelGroupProps[] = [
-  {panels: [<Panel></Panel>], ratios: [1, 3]}
-  {panels: [<Panel></Panel>], ratios: [1, 1]}
+  {panels: [<Panel></Panel>, <Panel></Panel>], ratios: [1, 3]},
+  {panels: [<Panel></Panel>, <Panel></Panel>], ratios: [3, 1]},
+  {panels: [<Panel></Panel>, <Panel></Panel>], ratios: [1, 3]}
 ];
 
 
 const tabData: Tab[] = [
-  { key: 'student1', title: 'Amy', content: <PanelGroup></PanelGroup> },
-  { key: 'student2', title: 'Andrew', content: <PanelGroup></PanelGroup> },
-  { key: 'student3', title: 'Chloe', content: <PanelGroup></PanelGroup> },
+  { key: 'student1', title: 'Amy', content: <PanelGroup {...panelGroupData[0]}></PanelGroup> },
+  { key: 'student2', title: 'Andrew', content: <PanelGroup {...panelGroupData[0]}></PanelGroup> },
+  { key: 'student3', title: 'Chloe', content: <PanelGroup {...panelGroupData[1]}></PanelGroup> },
 ];
 
 export default function StudentPage() {

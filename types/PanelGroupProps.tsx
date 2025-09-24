@@ -1,6 +1,4 @@
-
-
 export default interface PanelGroupProps {
-    panels: JSX.Element,
+    panels: React.ReactElement[],
     ratios: number[],
 };
