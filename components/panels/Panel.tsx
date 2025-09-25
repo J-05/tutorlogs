@@ -1,7 +1,9 @@
-const Panel: React.FC = () => {
+import PanelProps from "@/types/PanelProps"
+
+const Panel: React.FC<PanelProps> = ({ children }) => {
     return (
         <div className="bg-white h-full" >
-            <p>hi</p>    
+            {children}  
         </div>
     );
 }
