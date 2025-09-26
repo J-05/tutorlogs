@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { ViewType } from "@/types/Views"
 import Dropdown from "./Dropdown";
-import DropdownMenuProps from "@/types/DropdownMenuProps"
+import DropdownMenuProps from "@/types/dropdown/DropdownMenuProps"
 
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ options }): React.JSX.Element => {

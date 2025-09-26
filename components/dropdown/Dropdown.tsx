@@ -3,7 +3,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { ViewType } from '@/types/Views'
-import DropdownProps from "@/types/DropdownProps"
+import DropdownProps from "@/types/dropdown/DropdownProps"
 
 
 

@@ -1,4 +1,4 @@
-import PanelProps from "@/types/PanelProps"
+import PanelProps from "@/types/panels/PanelProps"
 
 const Panel: React.FC<PanelProps> = ({ children }) => {
     return (

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Panel from "@/components/panels/Panel";
 import PanelResizer from "@/components/panels/PanelResizer";
-import PanelGroupProps from "@/types/PanelGroupProps";
+import PanelGroupProps from "@/types/panels/PanelGroupProps";
 
 
 const PanelGroup: React.FC<PanelGroupProps> = ({panels, ratios}: PanelGroupProps) => {

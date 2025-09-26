@@ -5,7 +5,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Children } from "react";
-import {Tab, TabKey} from "@/types/Tab"
+import {Tab, TabKey} from "@/types/tabs/Tab"
 
 interface TabGroupProp {
     tabs: Tab[];
