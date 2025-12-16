@@ -3,14 +3,13 @@
 'use client';
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
-import { ViewType } from "@/types/Views"
+import { View } from "@/types/Views"
 
 const DropdownMenu: React.FC = (): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<ViewType>("Planner");
-  const options = () => {
-    return ["Planner", "Financing"];
-  };
+  const [selectedOption, setSelectedOption] = useState<View>({"key": "planner", "title": "Planner"} as View);
+  const options = [{"key": "planner", "title": "Planner"} as View, 
+    {"key": "financing", "title": "Financing"} as View];
   
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -25,8 +24,8 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
     }
   };
 
-  const optionSelection = (option: string): void => {
-    setSelectedOption(option as ViewType);
+  const optionSelection = (option: View): void => {
+    setSelectedOption(option as View);
   };
 
   return (
@@ -41,12 +40,12 @@ const DropdownMenu: React.FC = (): React.JSX.Element => {
             (dismissHandler(e))
             }
         >
-            {selectedOption}
+            {selectedOption.title}
         </button>
 
         {showDropdown && (
             <Dropdown
-                options={options()}
+                options={options}
                 optionSelection={optionSelection}
             />
             )}

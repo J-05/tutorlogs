@@ -2,38 +2,33 @@
 
 'use client';
 import React, { useEffect, useState } from 'react';
-import { ViewType } from '@/types/Views'
+import { View, ViewKey } from '@/types/Views'
 
 type DropdownProps = {
-  options: string[];
+  options: View[];
   optionSelection: Function;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({ options, optionSelection,}: DropdownProps): React.JSX.Element => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const handleClick = (option: ViewType): void => {
-    console.log("hi")
+  const handleClick = (option: View): void => {
     optionSelection(option);
   };
-
-  useEffect(() => {
-    setShowDropdown(showDropdown);
-  }, [showDropdown]);
 
   return (
     <>
       <div className={showDropdown ? 'dropdown' : 'dropdown active'}>
         {options.map(
-          (option: string, _: number): React.JSX.Element => {
+          (option: View, _: number): React.JSX.Element => {
             return (
               <button
-                key={option.toLowerCase()}
+                key={option.key}
                 onMouseDown={(): void => {
-                  handleClick(option as ViewType);
+                  handleClick(option);
                 }}
                 className='hover:bg-accent'
               >
-                {option}
+                {option.title}
               </button>
             );
           }

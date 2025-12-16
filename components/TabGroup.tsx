@@ -13,23 +13,24 @@ interface TabGroupProp {
     tabs: Tab[];
 }
 
-const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => { // declare Tabs component, expects tabs 
+// FC = functional component that accepts props of type TabGroupProp
+const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => { // unpacks tabs from props
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [activeTabKey, setActive] = useState<TabKey>("student1"); //active stores the current tab index
+  const [activeTabKey, setActive] = useState<TabKey>("student1"); // setActive auto defined, student1 default activeTabKey
   const activeTab = tabs.find(t => t.key === activeTabKey);
   const tabParam = searchParams.get("tab");
 
 
   useEffect(() => { //runs after render + when dependencies change 
-    if (tabParam) setActive(tabParam as TabKey);
+    if (tabParam) setActive(tabParam as TabKey); // cast tabParam to TabKey type
   }, [tabParam]); // dependencies
 
   // e = click event, cb = callback function optional
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, newTabKey: TabKey, cb = () => {}) => {
     e.preventDefault(); // prevent browser doing its default function (follow link)
     // build new search params
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search); // returns url query params (bit after ?) new -> create obj not call as func
     params.set("tab", newTabKey);
     // push new url
     router.push(`?${params.toString()}`);
@@ -48,7 +49,7 @@ const TabGroup: React.FC<TabGroupProp> = ({ tabs }: TabGroupProp) => { // declar
             className={`tab_head px-4 py-2 rounded-t-lg text-white shadow hover:bg-accent transition-colors duration-700
               ${tab.key === activeTabKey ? 'active bg-accent text-white' : 'bg-primary'}`}
             onClick={e => {
-              e.preventDefault(); // prevent default navigation
+              // e.preventDefault(); // prevent default navigation
               handleClick(e, tab.key);
             }}
             >

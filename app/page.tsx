@@ -13,7 +13,6 @@ export default function StudentPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-    
       <div className="bg-background text-foreground">
         <TabGroup tabs={tabData} />
       </div>
